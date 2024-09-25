@@ -1,1 +1,1 @@
-# mothing_but_useless
+# nothing_but_useless
