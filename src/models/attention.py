@@ -66,4 +66,8 @@ class MultiHeadAttention(nn.module):
         context = context.permute(0, 2, 1, 3)
         context = context.reshape((context.shape[0], context.shape[1], -1))
         return context
-    
+
+class PositionWiseFFN(nn.Module):
+    def __init__(self, d_model, dropout=0.0):
+        super().__init__()
+        
