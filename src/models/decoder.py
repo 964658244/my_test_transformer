@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch as th
-from attention import MultiHeadAttention, PositionWiseFFN
+from .attention import MultiHeadAttention, PositionWiseFFN
 
 
 class DecoderLayer(nn.Module):

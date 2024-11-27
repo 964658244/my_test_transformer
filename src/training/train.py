@@ -6,6 +6,10 @@ from torch.utils.data import DataLoader
 
 
 n_epochs = 100
+batch_size = 32
+MAX_LENGTH = 11
+hidden_size = 128
+learning_rate = 0.001
 
 # initiate a transformer model, set vocab table size, max sequence length, layer numbers, embedding dimension,
 # heads number, dropout rate and padding index
