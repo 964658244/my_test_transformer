@@ -6,7 +6,7 @@ from .decoder import *
 
 
 class Transformer(nn.Module):
-    def __init__(self, n_vocab, max_len, n_layer, emb_dim, n_head, drop_rate, padding_idx):
+    def __init__(self, n_vocab, max_len, n_layer=6, emb_dim=512, n_head=8, drop_rate=0.1, padding_idx=0):
         super().__init__()
         # initiate the max length, padding_idx, vocab table size
         self.max_len = max_len
@@ -14,8 +14,8 @@ class Transformer(nn.Module):
         self.dec_v_emb = n_vocab
         # initiate the position embedding, encoder, decoder and output layer
         self.embed = PositionEmbedding(max_len, emb_dim, n_vocab)
-        self.encoder = Encoder(n_vocab, emb_dim, n_head, drop_rate)
-        self.decoder = Decoder(n_vocab, emb_dim, n_head, drop_rate)
+        self.encoder = Encoder(n_head, emb_dim, drop_rate, n_layer)
+        self.decoder = Decoder(n_head, emb_dim, drop_rate, n_layer)
         self.output = nn.Linear(emb_dim, n_vocab)
         # initiate optimizer
         self.opt = th.optim.Adam(self.parameters(), lr=0.002)
