@@ -67,6 +67,7 @@ class Transformer(nn.Module):
         return mask > 0
 
 def pad_zero(seqs, max_len):
+    PAD_token = 0
     # initiate a total PAD_token padding 2d matrix, shape is (len(seqs), max_len)
     padded = np.full((len(seqs), max_len), fill_value=PAD_token, dtype=np.int32)
     for i, seq in enumerate(seqs):
