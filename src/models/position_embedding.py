@@ -21,7 +21,7 @@ class PositionEmbedding(nn.Module):
 
     def forward(self, x):
         # makesure position embedding and vocab weight as the same device
-        device = self.embedding.weight.device
+        device = self.embeddings.weight.device
         self.pe = self.pe.to(device)
         # calculate the input vocab weight, add the position embedding
         x_embed = self.embeddings(x) + self.pe
